@@ -21,7 +21,7 @@ init()
   set_color_depth(32);
   set_gfx_mode(GFX_AUTODETECT_WINDOWED, 640, 480, 0, 0);
 
-  show_mouse(screen);
+  //show_mouse(screen);
   puts("Finished Initialisation");
 }
 

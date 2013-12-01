@@ -20,6 +20,7 @@ play_level(int)
       readkey();
       quit = true;
     }
+
     if (mouse_b & 1) {
       //show_mouse(NULL);
       circlefill(playfield.world.gfx_map, mouse_x, mouse_y, 10, 0);
@@ -34,7 +35,10 @@ play_level(int)
     }
       
     playfield.draw();
+    show_mouse(screen);
+    rest(10);
   }
+  show_mouse(NULL);
 
   return 0;
 }
