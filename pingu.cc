@@ -7,7 +7,7 @@
 
 Pingu::Pingu(int x, int y)
 {
-  std::cout << "Pingu.set_pos init" << std::endl;
+  //std::cout << "Pingu.set_pos init" << std::endl;
   sprite = 0;
   alive = true;
   falling = 0;
@@ -21,7 +21,7 @@ Pingu::Pingu(int x, int y)
     exit(1);
   }
 
-  std::cout << "Pingu.set_pos init ende" << std::endl;
+  //std::cout << "Pingu.set_pos init ende" << std::endl;
 
   set_pos(x, y);
   falling = 0;

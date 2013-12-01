@@ -25,9 +25,9 @@ play_level(int)
       circlefill(playfield.world.gfx_map, mouse_x, mouse_y, 10, 0);
       circlefill(playfield.world.col_map, mouse_x, mouse_y, 10, 0);
     } else if (mouse_b & 2) {
-      puts("New Pingu");
+      //puts("New Pingu");
       playfield.world.pingu.push_back(*(new Pingu(mouse_x, mouse_y)));
-      puts("Happy Pinguing");
+      //puts("Happy Pinguing");
     } else if (mouse_b & 4) {
       circlefill(playfield.world.gfx_map, mouse_x, mouse_y, 10, 0xffffff);
       circlefill(playfield.world.col_map, mouse_x, mouse_y, 10, 255);
