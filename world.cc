@@ -10,7 +10,7 @@ World::World()
 {
   puts("World init");
   gfx_map = col_map = 0;
-  pingu.resize(100);
+  pingu.resize(50);
   puts("World init ende");
 }
 
@@ -59,7 +59,7 @@ World::init()
   PALETTE pal;
 
   for(int i=0; i < pingu.size(); ++i) {
-      pingu[i].set_pos(i*6 + 10, 175);
+      pingu[i].set_pos(i*12 + 10, 175);
   }
   puts("World init : loading gfx");
   gfx_map = load_pcx("levels/1_gfx.pcx", pal);
