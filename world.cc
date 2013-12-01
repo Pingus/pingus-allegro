@@ -66,7 +66,10 @@ World::init()
   assert(gfx_map);
   set_palette(pal);
 
+  int conversion_mode = get_color_conversion();
+  set_color_conversion(COLORCONV_NONE);
   col_map = load_pcx("levels/1.pcx", pal);
+  set_color_conversion(conversion_mode);
   assert(col_map);
   puts("World init : finished");
 }
