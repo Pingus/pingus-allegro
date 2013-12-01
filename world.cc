@@ -56,19 +56,16 @@ World::load()
 void 
 World::init()
 {
-  PALETTE pal;
-
   for(int i=0; i < pingu.size(); ++i) {
       pingu[i].set_pos(i*12 + 10, 175);
   }
   puts("World init : loading gfx");
-  gfx_map = load_pcx("levels/1_gfx.pcx", pal);
+  gfx_map = load_pcx("levels/1_gfx.pcx", NULL);
   assert(gfx_map);
-  set_palette(pal);
-
+  
   int conversion_mode = get_color_conversion();
   set_color_conversion(COLORCONV_NONE);
-  col_map = load_pcx("levels/1.pcx", pal);
+  col_map = load_pcx("levels/1.pcx", NULL);
   set_color_conversion(conversion_mode);
   assert(col_map);
   puts("World init : finished");

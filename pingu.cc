@@ -12,16 +12,15 @@ Pingu::Pingu(int x, int y)
   alive = true;
   falling = 0;
   direction = left;
-  PALETTE pal;
 
-  sprite = load_pcx("images/pingu.pcx", pal);
-  fall_sprite = load_pcx("images/PINGU_FALLing.PCX", pal);
+  sprite = load_pcx("images/pingu.pcx", NULL);
+  fall_sprite = load_pcx("images/PINGU_FALLing.PCX", NULL);
 
   if (sprite == 0 || fall_sprite == 0) {
     std::cerr << "Sceo" << std::endl;
     exit(1);
   }
-  set_palette(pal);
+
   std::cout << "Pingu.set_pos init ende" << std::endl;
 
   set_pos(x, y);
@@ -36,10 +35,9 @@ Pingu::Pingu()
   alive = true;
   falling = 0;
   direction = left;
-  PALETTE pal;
 
-  sprite = load_pcx("images/pingu.pcx", pal);
-  fall_sprite = load_pcx("images/PINGU_FALLing.PCX", pal);
+  sprite = load_pcx("images/pingu.pcx", NULL);
+  fall_sprite = load_pcx("images/PINGU_FALLing.PCX", NULL);
 
   if (sprite == 0 || fall_sprite == 0) {
     fprintf(stderr, "Sceo\n");
@@ -58,7 +56,11 @@ Pingu::~Pingu()
 void
 Pingu::draw(BITMAP* scr)
 {
-  putpixel(scr, x_pos, y_pos, rand()%255);
+  if (!alive)
+    return;
+
+  //putpixel(scr, x_pos, y_pos, rand()%255);
+
   if (falling > 2) {
     draw_sprite(scr, fall_sprite, x_pos - sprite->w/2, y_pos-sprite->h);
   } else {
