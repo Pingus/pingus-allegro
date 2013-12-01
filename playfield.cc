@@ -21,9 +21,7 @@ Playfield::draw()
   world.let_move();
   world.draw(buffer);
 
-  //show_mouse(NULL);
   blit(buffer, screen, 0,0,0,0, 640, 480);
-  //show_mouse(screen);
   
   //  GuiObj::draw();
 }
