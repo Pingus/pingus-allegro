@@ -1,0 +1,17 @@
+CXXFLAGS = -I../oo-aleg
+
+objs = game.o      \
+       gui_obj.o   \
+       init.o      \
+       intro.o     \
+       level.o     \
+       pingu.o     \
+       pingus.o    \
+       world.o     \
+       playfield.o \
+
+pingus.exe : $(objs)
+	g++ $(objs) ../oo-aleg/liboo-aleg.a -g -o pingus.exe -lalleg
+
+clean : 
+	rm $(objs) pingus.exe

@@ -1,0 +1,19 @@
+# Pingus - A free Lemmings Clone
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+load_pcxfile file("dev_pics/3.pcx")
+pal          name("my_pal")
+surface      name("stopper")      pos(0,0) size(32,32)
+
+load_pcxfile file("dev_pics/menu.pcx")
+pal          name("menu_pal")
+surface      name("menu")      pos(0,0) size(640,480)
+
+load_pcxfile file("dev_pics/menu_start.pcx")
+surface      name("menu_start")      pos(0,0) size(155,66)
+
+load_pcxfile file("dev_pics/menu_quit.pcx")
+surface      name("menu_quit")      pos(0,0) size(152,92)
+
+load_pcxfile file("dev_pics/menu_load.pcx")
+surface      name("menu_load")      pos(0,0) size(168,74)
