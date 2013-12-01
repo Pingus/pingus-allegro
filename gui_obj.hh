@@ -3,16 +3,16 @@
 #ifndef GUI_OBJ_HH
 #define GUI_OBJ_HH
 
-//#include <allegro.h>
+#include <allegro.h>
 
 class GuiObj 
 {
 public:
   GuiObj();
   ~GuiObj();
-  //BITMAP* bmp;
+  BITMAP* bmp;
 
-  // virtual void draw(/*BITMAP* scr*/);
+  virtual void draw(BITMAP* scr);
   virtual void draw();
   
 private:

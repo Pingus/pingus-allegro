@@ -4,7 +4,7 @@
 #define WORLD_HH
 
 #include <vector>
-//#include <oo-aleg.hh>
+#include <allegro.h>
 #include "pingu.hh"
 
 class World
@@ -12,15 +12,15 @@ class World
 public:
   World();
   ~World();
-  void draw(/*BITMAP* scr*/);
+  void draw(BITMAP* scr);
   void save();
   void load();
   void init();
   void let_move();
-
-  //BITMAP* gfx_map;
-  //  BITMAP* col_map;
-  vector<Pingu> pingu;
+  
+  BITMAP* gfx_map;
+  BITMAP* col_map;
+  std::vector<Pingu> pingu;
   
 private:
   //  vector<Start_Points>;

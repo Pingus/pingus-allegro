@@ -18,7 +18,7 @@ public:
 
 private:  
   int x_offset, y_offset;
-  //BITMAP* buffer;
+  BITMAP* buffer;
 };
 
 #endif

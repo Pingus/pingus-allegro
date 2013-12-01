@@ -6,8 +6,6 @@
 #include "pingu.hh"
 #include "playfield.hh"
 
-int mouse_b;
-
 int
 play_level(int)
 {
@@ -18,18 +16,18 @@ play_level(int)
   puts("Playfield created");
 
   while(!quit) {
-    if (/*keypressed()*/1) {
-      //readkey();
+    if (keypressed()) {
+      readkey();
       quit = true;
     }
     if (mouse_b & 1) {
       //show_mouse(NULL);
-      //circlefill(playfield.world.gfx_map, mouse_x, mouse_y, 10, 0);
-      //circlefill(playfield.world.col_map, mouse_x, mouse_y, 10, 0);
+      circlefill(playfield.world.gfx_map, mouse_x, mouse_y, 10, 0);
+      circlefill(playfield.world.col_map, mouse_x, mouse_y, 10, 0);
       //show_mouse(screen);
     } else if (mouse_b & 2) {
       puts("New Pingu");
-      //playfield.world.pingu.push_back(*(new Pingu(mouse_x, mouse_y)));
+      playfield.world.pingu.push_back(*(new Pingu(mouse_x, mouse_y)));
       puts("Happy Pinguing");
     } else if (mouse_b & 3) {
       puts("Wrong Button");
@@ -37,6 +35,8 @@ play_level(int)
       
     playfield.draw();
   }
+
+  return 0;
 }
 
 /* EOF */

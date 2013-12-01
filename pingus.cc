@@ -1,13 +1,15 @@
 // Copyright (C) 1998 Ingo Ruhnke <grumbel@gmx.de>, see README.TXT for details
 
 #include <iostream>
-#include <ClanLib/clanlib.h>
+#include <allegro.h>
 #include "init.hh"
 #include "intro.hh"
 #include "game.hh"
+#include "level.hh"
 #include "pingus.hh"
+#include "playfield.hh"
 
-class PingusMain : public CL_ClanApplication
+class PingusMain
 {
 
 public:
@@ -19,7 +21,7 @@ public:
    int  main(int argc, char* argv[]);
   */
 
-  virtual char* get_title()
+  virtual const char* get_title()
     {
       return "Pingus";
     }
@@ -30,16 +32,17 @@ public:
       int x = 0;
       int flips = 0;
 
-      cout << "Pingus Intro..." << endl;
+      std::cout << "Pingus Intro..." << std::endl;
 
-      CL_Surface* menu = CL_Sprite::load("menu", datafile);
-      CL_Surface* menu_quit = CL_Sprite::load("menu_quit", datafile);
-      CL_Surface* menu_load = CL_Sprite::load("menu_load", datafile);
-      CL_Surface* menu_start = CL_Sprite::load("menu_start", datafile);
+#if 0
+      //temp//CL_Surface* menu = CL_Sprite::load("menu", datafile);
+      //temp//CL_Surface* menu_quit = CL_Sprite::load("menu_quit", datafile);
+      //temp//CL_Surface* menu_load = CL_Sprite::load("menu_load", datafile);
+      //temp//CL_Surface* menu_start = CL_Sprite::load("menu_start", datafile);
       //CL_Display::set_palette("menu_pal", datafile);
-      CL_Display::clear_display();
-      menu->put_screen(0,0);
-      CL_Display::flip_display();
+      //temp//CL_Display::clear_display();
+      //temp//menu->put_screen(0,0);
+      //temp//CL_Display::flip_display();
 
       int  time = CL_System::get_time();
       int  pos = 0;
@@ -61,19 +64,19 @@ public:
 	
 	  switch(pos) {
 	  case 0:
-	    menu_quit->put_screen(45,246);
+	    //temp//menu_quit->put_screen(45,246);
 	    break;
 
 	  case 1:
-	    menu_load->put_screen(45,300);
+	    //temp//menu_load->put_screen(45,300);
 
 	    break;
 	
 	  case 2:
-	    menu_start->put_screen(45,192);
+	    //temp//menu_start->put_screen(45,192);
 	    break;
 	  }
-	  CL_Display::flip_display();
+	  //temp//CL_Display::flip_display();
 	  temp_pos = pos;
 	}
 
@@ -84,29 +87,31 @@ public:
 
 	if (CL_System::keep_alive()) break;  
       }
+#endif
     }
 
   void
   extro(void)
     {
-      cout << "Pingus Extro..." << endl;
+      std::cout << "Pingus Extro..." << std::endl;
     }
 
   void 
   check_args(int argc, char* argv[])
     {
-      cout << "Checking arguments..." << endl;
+      std::cout << "Checking arguments..." << std::endl;
   
-      cout << "Arguments correct" << endl;
+      std::cout << "Arguments correct" << std::endl;
     }
 
   virtual int main(int argc, char** argv)
     {
-      cout << "Pingus " << VERSION << " starting..." << endl;
+      std::cout << "Pingus " << VERSION << " starting..." << std::endl;
 
       //PingusMain::check_args(argc, argv);
 
       // initialisation
+#if 0
       CL_System::init_display();
       CL_Display::set_videomode(640, 480, 8);
   
@@ -133,12 +138,25 @@ public:
     
 	CL_System::keep_alive(); // Do NOT forget this one...
       }
+#endif
       return 0;
     }
 
 private:
-  CL_InputSourceProvider *datafile;
+  //CL_InputSourceProvider *datafile;
 
-} my_app; // notice this line. It creates the global instance.
+};
+
+int main(int argc, char** argv)
+{
+  std::cout << "Pingus " << VERSION << " starting..." << std::endl;
+
+  init();
+  play_level(1);
+
+  allegro_exit ();
+
+  return 0;
+}
 
 /* EOF */

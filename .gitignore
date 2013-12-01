@@ -1,0 +1,4 @@
+*.o
+*~
+/pingus
+/.sconsign.dblite

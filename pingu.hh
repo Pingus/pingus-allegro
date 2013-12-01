@@ -3,9 +3,8 @@
 #ifndef PINGU_HH
 #define PINGU_HH
 
-#include <Clanlib/clanlib.h>
 #include <string>
-//#include <allegro.h>
+#include <allegro.h>
 
 //enum Direction { left = -1, right = 1 };
 #define left (-1)
@@ -21,10 +20,10 @@ public:
   Pingu(int x, int y);
   ~Pingu();
 
-  int  rel_getpixel(/*BITMAP* col_map,*/ int x, int y);
+  int  rel_getpixel(BITMAP* col_map, int x, int y);
   void set_pos(int x, int y);
-  void let_move(/*BITMAP* col_map*/);
-  void draw(/*BITMAP* scr*/);
+  void let_move(BITMAP* col_map);
+  void draw(BITMAP* scr);
   bool is_alive(void);
 
 private:
@@ -36,8 +35,8 @@ private:
   
   Action  action;
   Action2 action2;
-  int/*BITMAP**/ sprite;
-  int/*BITMAP**/ fall_sprite; 
+  BITMAP* sprite;
+  BITMAP* fall_sprite; 
 };
 
 #endif

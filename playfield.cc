@@ -6,9 +6,9 @@
 
 Playfield::Playfield()
 {
-  cout << "Playfield:init" << endl;
+  std::cout << "Playfield:init" << std::endl;
   world.init();
-  // buffer = create_bitmap(640,480);
+  buffer = create_bitmap(640,480);
 }
 
 Playfield::~Playfield()
@@ -19,11 +19,11 @@ void
 Playfield::draw()
 {
   world.let_move();
-  world.draw(/*buffer*/);
+  world.draw(buffer);
 
   //show_mouse(NULL);
-  //blit(buffer, screen, 0,0,0,0, 640, 480);
-  //show_mouse(screen);
+  blit(buffer, screen, 0,0,0,0, 640, 480);
+  show_mouse(screen);
   
   //  GuiObj::draw();
 }

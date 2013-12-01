@@ -8,6 +8,7 @@ int
 menu()
 {
   puts("Menu - you don't have a choice");
+  return 0;
 }
 
 void
