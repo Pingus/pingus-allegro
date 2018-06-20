@@ -29,6 +29,7 @@ before_script:
     cmake
     build-essential
     libc++-dev
+    pkg-config
     liballegro4-dev
 
 .build_pingus_template: &build_pingus

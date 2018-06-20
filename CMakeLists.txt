@@ -17,7 +17,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(pingus-allegro VERSION 0.0.1)
 
-include(FindPkgConfig)
+find_package(PkgConfig REQUIRED)
 pkg_search_module(ALLEGRO REQUIRED allegro)
 
 file(GLOB PINGUS_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cc)
